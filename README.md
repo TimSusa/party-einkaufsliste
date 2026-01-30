@@ -1,16 +1,188 @@
-# Fresh project
+# 🎉 Party Einkaufsliste
 
-Your new Fresh project is ready to go. You can follow the Fresh "Getting
-Started" guide here: https://fresh.deno.dev/docs/getting-started
+Eine gemeinsame Einkaufsliste für deine nächste Party! Alle sehen in Echtzeit, was noch fehlt und wer was besorgt.
 
-### Usage
+![Party Banner](https://img.shields.io/badge/🥳-Party_Time-ff6b6b?style=for-the-badge)
+![Deno](https://img.shields.io/badge/Deno-1.40+-000000?style=for-the-badge&logo=deno)
+![Fresh](https://img.shields.io/badge/Fresh-1.7-96d636?style=for-the-badge)
+![Tailwind](https://img.shields.io/badge/Tailwind-3-38bdf8?style=for-the-badge&logo=tailwindcss)
 
-Make sure to install Deno: https://deno.land/manual/getting_started/installation
+---
 
-Then start the project:
+## ✨ Features
 
+| Feature | Beschreibung |
+|---------|-------------|
+| 🛒 **Artikel verwalten** | Hinzufügen, bearbeiten, löschen |
+| 💰 **Preis & Summen** | Automatische Berechnung der Kosten |
+| ✅ **Status-Tracking** | Checkbox für erledigt/offen |
+| 💬 **Kommentare** | Mit kompletter History |
+| 👤 **User-Namen** | Wer hat was geändert? |
+| 📱 **Responsive** | Funktioniert auf Handy & Desktop |
+| 💾 **Persistent** | Daten werden in JSON gespeichert |
+
+---
+
+## 🚀 Schnellstart
+
+### Schritt 1: Deno installieren
+
+**macOS / Linux:**
+```bash
+curl -fsSL https://deno.land/install.sh | sh
 ```
+
+**Windows (PowerShell):**
+```powershell
+irm https://deno.land/install.ps1 | iex
+```
+
+> 💡 **Tipp:** Nach der Installation musst du eventuell dein Terminal neu starten!
+
+### Schritt 2: Projekt klonen
+
+```bash
+git clone https://github.com/TimSusa/party-einkaufsliste.git
+cd party-einkaufsliste
+```
+
+### Schritt 3: Server starten
+
+```bash
 deno task start
 ```
 
-This will watch the project directory and restart as necessary.
+### Schritt 4: Browser öffnen
+
+Gehe zu: **http://localhost:8000** 🎉
+
+---
+
+## 📱 Auf dem Handy nutzen
+
+1. Finde die IP-Adresse deines Computers:
+   - **Mac:** `ipconfig getifaddr en0`
+   - **Linux:** `hostname -I`
+   - **Windows:** `ipconfig` → IPv4-Adresse
+
+2. Öffne auf dem Handy: `http://[DEINE-IP]:8000`
+
+> 💡 **Beispiel:** `http://192.168.1.50:8000`
+
+---
+
+## 🍓 Raspberry Pi Setup
+
+### Deno installieren
+
+```bash
+curl -fsSL https://deno.land/install.sh | sh
+echo 'export DENO_INSTALL="$HOME/.deno"' >> ~/.bashrc
+echo 'export PATH="$DENO_INSTALL/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### Autostart einrichten (optional)
+
+Erstelle eine Service-Datei:
+
+```bash
+sudo nano /etc/systemd/system/party-einkaufsliste.service
+```
+
+Füge ein:
+```ini
+[Unit]
+Description=Party Einkaufsliste
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/party-einkaufsliste
+ExecStart=/home/pi/.deno/bin/deno task start
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Aktiviere den Service:
+```bash
+sudo systemctl enable party-einkaufsliste
+sudo systemctl start party-einkaufsliste
+```
+
+---
+
+## 🛠️ Entwicklung
+
+### Projekt-Struktur
+
+```
+party-einkaufsliste/
+├── 📁 islands/           # Interaktive Komponenten
+│   └── ShoppingList.tsx  # Haupt-Komponente
+├── 📁 routes/            # Seiten & API
+│   ├── index.tsx         # Startseite
+│   └── api/
+│       ├── items.ts      # GET/POST Items
+│       └── items/[id].ts # Toggle/Delete Item
+├── 📁 static/            # CSS & Bilder
+├── 📄 deno.json          # Projekt-Config
+├── 📄 einkaufsliste.json # Datenbank (JSON)
+└── 📄 README.md          # Diese Datei
+```
+
+### Befehle
+
+| Befehl | Beschreibung |
+|--------|-------------|
+| `deno task start` | Startet den Dev-Server mit Hot-Reload |
+| `deno task build` | Erstellt einen Production-Build |
+| `deno task preview` | Vorschau des Production-Builds |
+
+---
+
+## 💡 Tipps & Tricks
+
+### Port ändern
+
+In `deno.json` oder starte mit:
+```bash
+PORT=3000 deno task start
+```
+
+### Daten zurücksetzen
+
+Lösche einfach `einkaufsliste.json` - wird beim nächsten Start neu erstellt.
+
+### Mehrere Benutzer
+
+Jeder öffnet die URL im Browser und gibt seinen Namen ein. Alle sehen automatisch die Änderungen der anderen!
+
+---
+
+## 🐛 Probleme?
+
+| Problem | Lösung |
+|---------|--------|
+| **Deno nicht gefunden** | Terminal neu starten oder PATH prüfen |
+| **Port belegt** | Anderen Port verwenden (siehe oben) |
+| **Handy kann nicht verbinden** | Gleches WLAN? Firewall prüfen |
+
+---
+
+## 📄 Lizenz
+
+MIT - Mach damit was du willst! 🎉
+
+---
+
+<div align="center">
+
+Made with ❤️ for your next party
+
+**[⭐ Star on GitHub](https://github.com/TimSusa/party-einkaufsliste)**
+
+</div>
