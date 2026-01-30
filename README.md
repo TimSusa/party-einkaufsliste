@@ -1,4 +1,5 @@
 # 🎉 Party Einkaufsliste
+<img width="693" height="845" alt="Screenshot 2026-01-30 at 14 04 36" src="https://github.com/user-attachments/assets/7406e6f6-4993-45b5-94e9-2dbe63460478" />
 
 Eine gemeinsame Einkaufsliste für deine nächste Party! Alle sehen in Echtzeit, was noch fehlt und wer was besorgt.
 
