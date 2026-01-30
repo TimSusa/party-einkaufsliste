@@ -72,46 +72,37 @@ Gehe zu: **http://localhost:8000** 🎉
 
 ---
 
-## 🍓 Raspberry Pi Setup
+## 🍓 Raspberry Pi / Debian - Ein-Befehl-Installation
 
-### Deno installieren
+Kopiere diesen Befehl und füge ihn im Terminal ein:
 
 ```bash
+curl -fsSL https://raw.githubusercontent.com/TimSusa/party-einkaufsliste/main/install-debian.sh | bash
+```
+
+**Das Skript macht automatisch:**
+1. ✅ Installiert Deno
+2. ✅ Lädt das Projekt herunter
+3. ✅ Richtet Autostart ein (systemd)
+4. ✅ Startet den Server
+
+Nach ca. 1 Minute ist alles fertig! 🎉
+
+### Manuelle Installation (Alternative)
+
+Falls du es lieber manuell machen möchtest:
+
+```bash
+# Deno installieren
 curl -fsSL https://deno.land/install.sh | sh
 echo 'export DENO_INSTALL="$HOME/.deno"' >> ~/.bashrc
 echo 'export PATH="$DENO_INSTALL/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
-```
 
-### Autostart einrichten (optional)
-
-Erstelle eine Service-Datei:
-
-```bash
-sudo nano /etc/systemd/system/party-einkaufsliste.service
-```
-
-Füge ein:
-```ini
-[Unit]
-Description=Party Einkaufsliste
-After=network.target
-
-[Service]
-Type=simple
-User=pi
-WorkingDirectory=/home/pi/party-einkaufsliste
-ExecStart=/home/pi/.deno/bin/deno task start
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Aktiviere den Service:
-```bash
-sudo systemctl enable party-einkaufsliste
-sudo systemctl start party-einkaufsliste
+# Projekt klonen & starten
+git clone https://github.com/TimSusa/party-einkaufsliste.git
+cd party-einkaufsliste
+deno task start
 ```
 
 ---
