@@ -1,0 +1,43 @@
+{
+  "items": [
+    {
+      "id": "39a065c1-8f2d-4dd1-8f84-b545b4423bb5",
+      "artikel": "chips",
+      "anzahl": 2,
+      "preis": 1,
+      "status": "done",
+      "kommentar": "da",
+      "kommentarHistory": [
+        {
+          "kommentar": "dringend",
+          "username": "tim",
+          "timestamp": "2026-01-30T12:50:11.051Z"
+        }
+      ],
+      "letzterUser": "marec",
+      "updatedAt": "2026-01-30T12:52:04.282Z"
+    },
+    {
+      "id": "b9d6de46-b8b9-42e4-bbf6-2ee7f2dab260",
+      "artikel": "holz",
+      "anzahl": 5,
+      "preis": 4,
+      "status": "todo",
+      "kommentar": "mjhfkjhg",
+      "kommentarHistory": [
+        {
+          "kommentar": "gleich",
+          "username": "marie",
+          "timestamp": "2026-01-30T12:51:29.539Z"
+        },
+        {
+          "kommentar": "dalli",
+          "username": "tim",
+          "timestamp": "2026-01-30T12:51:43.072Z"
+        }
+      ],
+      "letzterUser": "marec",
+      "updatedAt": "2026-01-30T12:52:32.670Z"
+    }
+  ]
+}

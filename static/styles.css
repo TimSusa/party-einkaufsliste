@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-gradient {
+    animation: gradient-shift 15s ease infinite;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Party confetti effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle, rgba(255, 107, 107, 0.1) 1px, transparent 1px),
+    radial-gradient(circle, rgba(254, 202, 87, 0.1) 1px, transparent 1px),
+    radial-gradient(circle, rgba(72, 219, 251, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px, 60px 60px, 80px 80px;
+  background-position: 0 0, 20px 20px, 40px 40px;
+}
+
+/* Smooth transitions */
+* {
+  font-family:
+    "system-ui", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+/* Custom checkbox styling */
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Focus styles */
+input:focus, button:focus {
+  outline: none;
+}
+
+/* Border width utility */
+.border-3 {
+  border-width: 3px;
+}
